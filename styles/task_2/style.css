@@ -1,0 +1,6 @@
+@import url("../home/style.css");
+
+#works-label:before {
+    font-family: "FontAwesome", sans-serif;
+    content: "\f085";
+}

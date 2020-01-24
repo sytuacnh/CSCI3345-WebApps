@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang=”en”>
-  <head>
-    <meta charset=”utf-8”>
-    <title>This is a title</title>
-  </head>
-  <body>
-    <p>Hello world!</p>
-  </body>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Home | Stanley</title>
+    <link rel="stylesheet" type="text/css" href="styles/home/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Hello <strong>World</strong></h1>
+        <p>...the place where everything started</p>
+    </header>
+    <content>
+        <ul id="compositions-list" class="tree main-tree">
+            <li>
+                <input type="checkbox" id="trigger-views" checked="checked">
+                <label for="trigger-views" id="tasks-label">tasks</label>
+                <ul class="tree">
+                    <li class="tree_link">
+                        <input type="checkbox" id="trigger-toggle">
+                        <a href="tasks/task_1/about_me.html" title="t1">#1 About Me</a>
+                    </li>
+                    <li class="tree_link">
+                        <input type="checkbox" id="trigger-toggle">
+                        <a href="tasks/task_2/about_me.html" title="t2">#2 About Me With CSS</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </content>
+    <footer>
+        <p>Powered by Stanley Lin</p>
+    </footer>
+</body>
+
 </html>
