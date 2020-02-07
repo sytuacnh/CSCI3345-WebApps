@@ -1,0 +1,27 @@
+@import url("../basic.css");
+
+table {
+    border-spacing: 20px;
+    border-collapse: separate;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    margin-top: 10px;
+}
+
+th,
+td {
+    /* text-align: center; */
+    /* font-weight: normal;
+    vertical-align: middle; */
+    /* color: red; */
+}
+
+.sort {
+    font-weight: bold;
+}
