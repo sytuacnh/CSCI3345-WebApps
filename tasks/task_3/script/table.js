@@ -28,19 +28,24 @@ const [heads, players] = (function() {
     return [parseLine(heads), player_lines.map(line => parseLine(line)).map(player => parsePlayerName(player))];
 })();
 
-
+// <div class="arrow-up"></div>
 (function createTable(tableHeadData, tableContentData) {
     let table = document.createElement("table");
     let tableHeadBody = document.createElement("tbody");
-    tableHeadBody.setAttribute("id", "headTD");
+    tableHeadBody.setAttribute("id", "headTableBody");
     let tableContentBody = document.createElement("tbody");
-    tableContentBody.setAttribute("id", "contTD");
+    tableContentBody.setAttribute("id", "contTableBody");
 
     let headRow = document.createElement("tr");
     tableHeadData.forEach(function(cellData) {
-        let cell = document.createElement("td");
+        let cell = document.createElement("th");
         cell.setAttribute("class", "sort");
         cell.appendChild(document.createTextNode(cellData));
+
+        let arrow = document.createElement("div");
+        arrow.setAttribute("class", "arrow-up");
+        cell.appendChild(arrow);
+
         headRow.appendChild(cell);
     });
     tableHeadBody.appendChild(headRow);
@@ -57,8 +62,24 @@ const [heads, players] = (function() {
 
     table.appendChild(tableHeadBody);
     table.appendChild(tableContentBody);
-    document.body.appendChild(table);
+    document.getElementById("wrapper").appendChild(table);
 })(heads, players);
+
+(function addFooter() {
+    let footer = document.createElement("footer");
+    let p = document.createElement("p");
+    p.appendChild(document.createTextNode("Powered by Stanley Lin & "));
+    let a = document.createElement('a');
+    let linkText = document.createTextNode("Dougstats");
+    a.appendChild(linkText);
+    a.title = "Dougstats.com";
+    a.href = "http://www.dougstats.com/";
+    a.setAttribute("target", "_blank");
+    p.appendChild(a);
+    footer.appendChild(p);
+    document.body.appendChild(footer);
+    document.getElementById("wrapper").appendChild(footer);
+})();
 
 const sortNumberD = (x, y) => {
     // if (typeof x[0] === 'string' || typeof y[0] === 'string')
@@ -79,17 +100,17 @@ const sortNumberA = (x, y) => {
 }
 
 let arrayToBeSorted = new Array();
-const headTD = document.getElementById("headTD");
-const headList = headTD.getElementsByTagName("td");
-const contTD = document.getElementById("contTD");
-let contList = contTD.getElementsByTagName("tr");
+const headTableBody = document.getElementById("headTableBody");
+const headList = headTableBody.getElementsByTagName("th");
+const contTableBody = document.getElementById("contTableBody");
+let contList = contTableBody.getElementsByTagName("tr");
 let newNode;
 let descendOrder = true;
 
 for (let i = 0; i < headList.length; i++) {
     headList[i].index = i;
     headList[i].onclick = function() {
-        if (this.className) {
+        if (this.className == "sort") {
             newNode = "";
             for (let j = 0; j < contList.length; j++) {
                 arrayToBeSorted[j] = new Array();
@@ -99,7 +120,7 @@ for (let i = 0; i < headList.length; i++) {
             }
 
             if (!isNaN(arrayToBeSorted[0][0])) {
-                if (descendOrder) 
+                if (descendOrder)
                     arrayToBeSorted.sort(sortNumberD)
                 else
                     arrayToBeSorted.sort(sortNumberA)
@@ -109,12 +130,21 @@ for (let i = 0; i < headList.length; i++) {
                 else
                     arrayToBeSorted.sort().reverse();
             }
+            // descendOrder = !descendOrder;
+
+            if (descendOrder) {
+                let arrow = headList[i].lastChild;
+                arrow.classList.add('arrow-reverse');
+            } else {
+                let arrow = headList[i].lastChild;
+                arrow.classList.remove('arrow-reverse');
+            }
             descendOrder = !descendOrder;
 
             for (let x = 0; x < contList.length; x++)
                 newNode += "<tr>" + contList[arrayToBeSorted[x][1]].innerHTML + "</tr>";
 
-            contTD.innerHTML = newNode;
+            contTableBody.innerHTML = newNode;
         }
     }
 }

@@ -1,7 +1,7 @@
 @import url("../basic.css");
 
 table {
-    border-spacing: 20px;
+    border-spacing: 18px;
     border-collapse: separate;
     text-align: center;
 }
@@ -14,14 +14,46 @@ h3 {
     margin-top: 10px;
 }
 
-th,
+/* th,
 td {
-    /* text-align: center; */
-    /* font-weight: normal;
-    vertical-align: middle; */
-    /* color: red; */
-}
+    text-align: center;
+    font-weight: normal;
+    vertical-align: middle;
+    color: red;
+} */
 
 .sort {
+    font-weight: bold;
+}
+
+
+th {
+    padding-bottom: 3px;
+    border-bottom: 2px solid gray;
+    /* color: red; */
+    position: relative;
+}
+
+
+#contTableBody td {
+    border-bottom: 1px dashed gray;
+}
+
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 7px solid gray;
+    display: inline;
+    position: absolute;
+    margin-left: 3px;
+}
+
+.arrow-reverse {
+    transform: rotate(180deg);
+}
+
+a:link {
     font-weight: bold;
 }

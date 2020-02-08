@@ -185,13 +185,29 @@ p {
     line-height: 1.5em;
 }
 
+a:link {
+    /* font-weight: bold; */
+    text-decoration: none;
+    color: #444444;
+}
+
+a:visited {
+    color: #444444;
+}
+
+a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+#wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
 footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  /* background-color: red; */
-  /* color: white; */
-  text-align: center;
-  margin: 1em 0 2em;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    margin: 2em 0 1em;
 }
