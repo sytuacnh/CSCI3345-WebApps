@@ -7,22 +7,21 @@
 
 const parseLine = (line) => {
     return line.split(/(\s+)/).filter(e => e.trim().length > 0);
-}
+};
 
 const capitalizeName = (s) => {
     if (typeof s !== 'string') return ''
     return s.charAt(0).toUpperCase() + s.slice(1)
-}
+};
 
 const parsePlayerName = (player) => {
     const [last, first] = player[0].split(',');
     player[0] = capitalizeName(first) + " " + capitalizeName(last);
     return player;
-}
+};
 
 const fillTable = (tableBody, players) => {
     players.forEach(function(rowData) {
-        console.log('!!!!')
         let row = document.createElement("tr");
         rowData.forEach(function(cellData) {
             let cell = document.createElement("td");
@@ -31,7 +30,58 @@ const fillTable = (tableBody, players) => {
         });
         tableBody.appendChild(row);
     });
-}
+};
+
+const prepareSort = () => {
+    let arrayToBeSorted = new Array();
+    const tableHead = document.getElementById("tableHead");
+    const headList = tableHead.getElementsByTagName("th");
+    const tableBody = document.getElementById("tableBody");
+    let contList = tableBody.getElementsByTagName("tr");
+    let newNode;
+    let descendOrder = true;
+
+    for (let i = 0; i < headList.length; i++) {
+        headList[i].index = i;
+        headList[i].onclick = function() {
+            if (this.className == "sort") {
+                newNode = "";
+                for (let j = 0; j < contList.length; j++) {
+                    arrayToBeSorted[j] = new Array();
+                    let tdElems = contList[j].getElementsByTagName("td");
+                    arrayToBeSorted[j][0] = tdElems[this.index].innerText;
+                    arrayToBeSorted[j][1] = j;
+                }
+
+                if (!isNaN(arrayToBeSorted[0][0])) {
+                    if (descendOrder)
+                        arrayToBeSorted.sort(sortNumberD)
+                    else
+                        arrayToBeSorted.sort(sortNumberA)
+                } else {
+                    if (descendOrder)
+                        arrayToBeSorted.sort();
+                    else
+                        arrayToBeSorted.sort().reverse();
+                }
+
+                if (descendOrder) {
+                    let arrow = headList[i].lastChild;
+                    arrow.classList.add('arrow-reverse');
+                } else {
+                    let arrow = headList[i].lastChild;
+                    arrow.classList.remove('arrow-reverse');
+                }
+                descendOrder = !descendOrder;
+
+                for (let x = 0; x < contList.length; x++)
+                    newNode += "<tr>" + contList[arrayToBeSorted[x][1]].innerHTML + "</tr>";
+
+                tableBody.innerHTML = newNode;
+            }
+        }
+    }
+};
 
 const [heads, players] = (function() {
     let player_lines = player_stats.split(/\r?\n/g);
@@ -42,7 +92,8 @@ const [heads, players] = (function() {
     return [parseLine(heads), player_lines.map(line => parseLine(line)).map(player => parsePlayerName(player))];
 })();
 
-const o_players = JSON.parse(JSON.stringify(players));
+
+// const originalPlayers = JSON.parse(JSON.stringify(players)); // unnecessary
 (function createTable(tableHeadData, tableContentData) {
     let table = document.createElement("table");
     let tableHead = document.createElement("thead");
@@ -64,23 +115,15 @@ const o_players = JSON.parse(JSON.stringify(players));
     });
     tableHead.appendChild(headRow);
 
-    // tableContentData.forEach(function(rowData) {
-    //     let row = document.createElement("tr");
-    //     rowData.forEach(function(cellData) {
-    //         let cell = document.createElement("td");
-    //         cell.appendChild(document.createTextNode(cellData));
-    //         row.appendChild(cell);
-    //     });
-    //     tableBody.appendChild(row);
-    // });
-
     fillTable(tableBody, tableContentData);
 
     // orginalTableBody = tableBody;
     table.appendChild(tableHead);
     table.appendChild(tableBody);
     document.getElementById("wrapper").appendChild(table);
-})(heads, o_players);
+
+    prepareSort();
+})(heads, players);
 
 (function addFooter() {
     let footer = document.createElement("footer");
@@ -106,7 +149,7 @@ const sortNumberD = (x, y) => {
 
     if (a === b) return 0
     else return a > b ? 1 : -1;
-}
+};
 
 const sortNumberA = (x, y) => {
     const a = parseInt(x[0]);
@@ -114,77 +157,35 @@ const sortNumberA = (x, y) => {
 
     if (a === b) return 0
     else return a > b ? -1 : 1;
-}
+};
 
-let arrayToBeSorted = new Array();
-const tableHead = document.getElementById("tableHead");
-const headList = tableHead.getElementsByTagName("th");
-const tableBody = document.getElementById("tableBody");
-let contList = tableBody.getElementsByTagName("tr");
-let newNode;
-let descendOrder = true;
-
-for (let i = 0; i < headList.length; i++) {
-    headList[i].index = i;
-    headList[i].onclick = function() {
-        if (this.className == "sort") {
-            newNode = "";
-            for (let j = 0; j < contList.length; j++) {
-                arrayToBeSorted[j] = new Array();
-                let tdElems = contList[j].getElementsByTagName("td");
-                arrayToBeSorted[j][0] = tdElems[this.index].innerText;
-                arrayToBeSorted[j][1] = j;
-            }
-
-            if (!isNaN(arrayToBeSorted[0][0])) {
-                if (descendOrder)
-                    arrayToBeSorted.sort(sortNumberD)
-                else
-                    arrayToBeSorted.sort(sortNumberA)
-            } else {
-                if (descendOrder)
-                    arrayToBeSorted.sort();
-                else
-                    arrayToBeSorted.sort().reverse();
-            }
-            // descendOrder = !descendOrder;
-
-            if (descendOrder) {
-                let arrow = headList[i].lastChild;
-                arrow.classList.add('arrow-reverse');
-            } else {
-                let arrow = headList[i].lastChild;
-                arrow.classList.remove('arrow-reverse');
-            }
-            descendOrder = !descendOrder;
-
-            for (let x = 0; x < contList.length; x++)
-                newNode += "<tr>" + contList[arrayToBeSorted[x][1]].innerHTML + "</tr>";
-
-            tableBody.innerHTML = newNode;
-        }
-    }
-}
 
 // search related
+const recoverTable = () => {
+    // setTimeout(function() {
+    // }, 1000);
+    let tableBody = document.getElementById("tableBody");
+    fillTable(tableBody, players);
+};
+
+const updateTableByPlayers = (players, searchedValue) => {
+    let tableBody = document.getElementById("tableBody");
+    while (tableBody.hasChildNodes())
+        tableBody.removeChild(tableBody.firstChild);
+
+    players = players.filter(player => player[0].toLowerCase().includes(searchedValue.toLowerCase()));
+    fillTable(tableBody, players);
+    prepareSort();
+};
+
 const clearSearchBar = () => {
     let searchBar = document.getElementById("search-bar");
     searchBar.value = "";
-    // set data back to original
-    updateTableByPlayers();
     recoverTable();
-}
+};
 
-const updateTableByPlayers = (players) => {
-    let tableBody = document.getElementById("tableBody");
-    while (tableBody.hasChildNodes()) {
-        tableBody.removeChild(tableBody.firstChild);
-    }
-}
-
-const recoverTable = () => {
-    setTimeout(function() {
-        let tableBody = document.getElementById("tableBody");
-        fillTable(tableBody, o_players);
-    }, 1000);
-}
+const doSearch = () => {
+    console.log('do search')
+    let searchBar = document.getElementById("search-bar");
+    updateTableByPlayers(players, searchBar.value);
+};
