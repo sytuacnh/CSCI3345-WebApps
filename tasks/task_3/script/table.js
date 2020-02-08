@@ -3,6 +3,7 @@
     player_stats is the const variable that stores the string data
     This behavior is guaranteed by the defer attribute of <script>
 */
+"use strict";
 
 const parseLine = (line) => {
     return line.split(/(\s+)/).filter(e => e.trim().length > 0);
@@ -31,10 +32,10 @@ const [heads, players] = (function() {
 // <div class="arrow-up"></div>
 (function createTable(tableHeadData, tableContentData) {
     let table = document.createElement("table");
-    let tableHeadBody = document.createElement("tbody");
-    tableHeadBody.setAttribute("id", "headTableBody");
-    let tableContentBody = document.createElement("tbody");
-    tableContentBody.setAttribute("id", "contTableBody");
+    let tableHead = document.createElement("thead");
+    tableHead.setAttribute("id", "tableHead");
+    let tableBody = document.createElement("tbody");
+    tableBody.setAttribute("id", "tableBody");
 
     let headRow = document.createElement("tr");
     tableHeadData.forEach(function(cellData) {
@@ -48,7 +49,7 @@ const [heads, players] = (function() {
 
         headRow.appendChild(cell);
     });
-    tableHeadBody.appendChild(headRow);
+    tableHead.appendChild(headRow);
 
     tableContentData.forEach(function(rowData) {
         let row = document.createElement("tr");
@@ -57,11 +58,11 @@ const [heads, players] = (function() {
             cell.appendChild(document.createTextNode(cellData));
             row.appendChild(cell);
         });
-        tableContentBody.appendChild(row);
+        tableBody.appendChild(row);
     });
 
-    table.appendChild(tableHeadBody);
-    table.appendChild(tableContentBody);
+    table.appendChild(tableHead);
+    table.appendChild(tableBody);
     document.getElementById("wrapper").appendChild(table);
 })(heads, players);
 
@@ -100,10 +101,10 @@ const sortNumberA = (x, y) => {
 }
 
 let arrayToBeSorted = new Array();
-const headTableBody = document.getElementById("headTableBody");
-const headList = headTableBody.getElementsByTagName("th");
-const contTableBody = document.getElementById("contTableBody");
-let contList = contTableBody.getElementsByTagName("tr");
+const tableHead = document.getElementById("tableHead");
+const headList = tableHead.getElementsByTagName("th");
+const tableBody = document.getElementById("tableBody");
+let contList = tableBody.getElementsByTagName("tr");
 let newNode;
 let descendOrder = true;
 
@@ -144,7 +145,7 @@ for (let i = 0; i < headList.length; i++) {
             for (let x = 0; x < contList.length; x++)
                 newNode += "<tr>" + contList[arrayToBeSorted[x][1]].innerHTML + "</tr>";
 
-            contTableBody.innerHTML = newNode;
+            tableBody.innerHTML = newNode;
         }
     }
 }

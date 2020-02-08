@@ -30,12 +30,16 @@ td {
 th {
     padding-bottom: 3px;
     border-bottom: 2px solid gray;
-    /* color: red; */
     position: relative;
 }
 
+th:hover,
+td:hover {
+    color: darkcyan;
+    font-weight: bold;
+}
 
-#contTableBody td {
+#tableBody td {
     border-bottom: 1px dashed gray;
 }
 
@@ -56,4 +60,38 @@ th {
 
 a:link {
     font-weight: bold;
+}
+
+.search {
+    margin: 50px 0 10px;
+}
+
+#search-bar {
+    width: 300px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: width 0.2s;
+    -webkit-appearance: none;
+    /* outline: none; */
+}
+
+.button {
+    width: 100px;
+    padding: 8px;
+    margin-left: 5px;
+    /* border: 1px solid gray; */
+    background-color: SlateGrey;
+    font-size: 15px;
+    color: white;
+    transition: width 0.2s;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    -webkit-appearance: none;
+    outline: none;
+}
+
+#clear-button {
+    background-color: salmon;
 }
