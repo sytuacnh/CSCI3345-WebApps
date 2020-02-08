@@ -185,7 +185,6 @@ const clearSearchBar = () => {
 };
 
 const doSearch = () => {
-    console.log('do search')
     let searchBar = document.getElementById("search-bar");
     updateTableByPlayers(players, searchBar.value);
 };
