@@ -20,6 +20,19 @@ const parsePlayerName = (player) => {
     return player;
 }
 
+const fillTable = (tableBody, players) => {
+    players.forEach(function(rowData) {
+        console.log('!!!!')
+        let row = document.createElement("tr");
+        rowData.forEach(function(cellData) {
+            let cell = document.createElement("td");
+            cell.appendChild(document.createTextNode(cellData));
+            row.appendChild(cell);
+        });
+        tableBody.appendChild(row);
+    });
+}
+
 const [heads, players] = (function() {
     let player_lines = player_stats.split(/\r?\n/g);
     player_lines.shift();
@@ -29,7 +42,7 @@ const [heads, players] = (function() {
     return [parseLine(heads), player_lines.map(line => parseLine(line)).map(player => parsePlayerName(player))];
 })();
 
-// <div class="arrow-up"></div>
+const o_players = JSON.parse(JSON.stringify(players));
 (function createTable(tableHeadData, tableContentData) {
     let table = document.createElement("table");
     let tableHead = document.createElement("thead");
@@ -51,20 +64,23 @@ const [heads, players] = (function() {
     });
     tableHead.appendChild(headRow);
 
-    tableContentData.forEach(function(rowData) {
-        let row = document.createElement("tr");
-        rowData.forEach(function(cellData) {
-            let cell = document.createElement("td");
-            cell.appendChild(document.createTextNode(cellData));
-            row.appendChild(cell);
-        });
-        tableBody.appendChild(row);
-    });
+    // tableContentData.forEach(function(rowData) {
+    //     let row = document.createElement("tr");
+    //     rowData.forEach(function(cellData) {
+    //         let cell = document.createElement("td");
+    //         cell.appendChild(document.createTextNode(cellData));
+    //         row.appendChild(cell);
+    //     });
+    //     tableBody.appendChild(row);
+    // });
 
+    fillTable(tableBody, tableContentData);
+
+    // orginalTableBody = tableBody;
     table.appendChild(tableHead);
     table.appendChild(tableBody);
     document.getElementById("wrapper").appendChild(table);
-})(heads, players);
+})(heads, o_players);
 
 (function addFooter() {
     let footer = document.createElement("footer");
@@ -148,4 +164,27 @@ for (let i = 0; i < headList.length; i++) {
             tableBody.innerHTML = newNode;
         }
     }
+}
+
+// search related
+const clearSearchBar = () => {
+    let searchBar = document.getElementById("search-bar");
+    searchBar.value = "";
+    // set data back to original
+    updateTableByPlayers();
+    recoverTable();
+}
+
+const updateTableByPlayers = (players) => {
+    let tableBody = document.getElementById("tableBody");
+    while (tableBody.hasChildNodes()) {
+        tableBody.removeChild(tableBody.firstChild);
+    }
+}
+
+const recoverTable = () => {
+    setTimeout(function() {
+        let tableBody = document.getElementById("tableBody");
+        fillTable(tableBody, o_players);
+    }, 1000);
 }
