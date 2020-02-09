@@ -96,6 +96,10 @@ a:link {
     outline: none;
 }
 
+.radioButton {
+    margin-right: 5px;
+}
+
 #clear-button {
     background-color: salmon;
 }

@@ -14,9 +14,12 @@ const capitalizeName = (s) => {
     return s.charAt(0).toUpperCase() + s.slice(1)
 };
 
-const parsePlayerName = (player) => {
+// change player name and team name format
+const parsePlayer = (player) => {
     const [last, first] = player[0].split(',');
+    const team = player[1];
     player[0] = capitalizeName(first) + " " + capitalizeName(last);
+    player[1] = team.toUpperCase();
     return player;
 };
 
@@ -89,7 +92,7 @@ const [heads, players] = (function() {
     player_lines.pop();
     let heads = player_lines[0];
     player_lines.shift();
-    return [parseLine(heads), player_lines.map(line => parseLine(line)).map(player => parsePlayerName(player))];
+    return [parseLine(heads), player_lines.map(line => parseLine(line)).map(player => parsePlayer(player))];
 })();
 
 
@@ -161,6 +164,8 @@ const sortNumberA = (x, y) => {
 
 
 // search related
+let filterBy = "player";
+
 const clearAllPlayers = (tableBody) => {
     while (tableBody.hasChildNodes())
         tableBody.removeChild(tableBody.firstChild);
@@ -175,13 +180,21 @@ const recoverTable = () => {
     // console.log(tableBody.childElementCount);
 };
 
-const updateTableByPlayers = (players, searchedValue) => {
+const updateTableAfterSearch = (players, searchedValue) => {
     let tableBody = document.getElementById("tableBody");
     clearAllPlayers(tableBody);
-    players = players.filter(player => player[0].toLowerCase().includes(searchedValue.toLowerCase()));
+    if (filterBy === "player")
+        players = players.filter(player => player[0].toLowerCase().includes(searchedValue.toLowerCase()));
+    else if (filterBy === "team") {
+        console.log('by team!!!!!')
+    }
     fillTable(tableBody, players);
     prepareSort();
 };
+
+const updateSearchBarPlaceholder = (searchBar, newPlaceholder) => {
+    searchBar.placeholder = newPlaceholder;
+}
 
 const clearSearchBar = () => {
     let searchBar = document.getElementById("search-bar");
@@ -191,5 +204,14 @@ const clearSearchBar = () => {
 
 const doSearch = () => {
     let searchBar = document.getElementById("search-bar");
-    updateTableByPlayers(players, searchBar.value);
+    updateTableAfterSearch(players, searchBar.value);
 };
+
+const clickSearchFilter = (value) => {
+    let searchBar = document.getElementById("search-bar");
+    if (value === "player")
+        updateSearchBarPlaceholder(searchBar, "Player Name (ex: morant)");
+    else if (value === "team")
+        updateSearchBarPlaceholder(searchBar, "Team Name (ex: spurs, san)");
+    filterBy = value;
+}
