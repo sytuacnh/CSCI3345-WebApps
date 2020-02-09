@@ -161,18 +161,23 @@ const sortNumberA = (x, y) => {
 
 
 // search related
+const clearAllPlayers = (tableBody) => {
+    while (tableBody.hasChildNodes())
+        tableBody.removeChild(tableBody.firstChild);
+};
+
 const recoverTable = () => {
     // setTimeout(function() {
     // }, 1000);
     let tableBody = document.getElementById("tableBody");
+    clearAllPlayers(tableBody);
     fillTable(tableBody, players);
+    // console.log(tableBody.childElementCount);
 };
 
 const updateTableByPlayers = (players, searchedValue) => {
     let tableBody = document.getElementById("tableBody");
-    while (tableBody.hasChildNodes())
-        tableBody.removeChild(tableBody.firstChild);
-
+    clearAllPlayers(tableBody);
     players = players.filter(player => player[0].toLowerCase().includes(searchedValue.toLowerCase()));
     fillTable(tableBody, players);
     prepareSort();
