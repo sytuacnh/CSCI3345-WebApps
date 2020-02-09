@@ -80,11 +80,11 @@ a:link {
     /* outline: none; */
 }
 
-.button {
+/*move to basic*/
+/* .button {
     width: 100px;
     padding: 8px;
     margin-left: 5px;
-    /* border: 1px solid gray; */
     background-color: SlateGrey;
     font-size: 15px;
     color: white;
@@ -94,7 +94,7 @@ a:link {
     border-radius: 50px;
     -webkit-appearance: none;
     outline: none;
-}
+} */
 
 .radioButton {
     margin-right: 5px;
@@ -102,4 +102,11 @@ a:link {
 
 #clear-button {
     background-color: salmon;
+}
+
+.home-button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: -40px;
 }

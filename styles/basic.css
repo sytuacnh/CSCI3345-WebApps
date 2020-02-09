@@ -211,3 +211,35 @@ footer {
     text-align: center;
     margin: 2em 0 1em;
 }
+.button {
+    width: 100px;
+    padding: 8px;
+    margin-left: 5px;
+    background-color: SlateGrey;
+    font-size: 15px;
+    color: white;
+    transition: width 0.2s;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    -webkit-appearance: none;
+    outline: none;
+}
+
+.home-button {
+    font-weight: lighter;
+    font: 12px;
+    width: 50px;
+    background-color: #444;
+}
+
+.home-button:hover {
+    text-decoration: none;
+}
+.home-button:link {
+    font-weight: normal;
+}
+.home-button:visited {
+    color: white;
+}
+

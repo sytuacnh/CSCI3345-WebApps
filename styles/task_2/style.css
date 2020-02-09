@@ -1,6 +1,14 @@
 @import url("../home/style.css");
 
+.home-button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: -70px;
+}
+
 #works-label:before {
     font-family: "FontAwesome", sans-serif;
     content: "\f085";
 }
+
