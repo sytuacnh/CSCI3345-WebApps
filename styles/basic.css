@@ -231,7 +231,6 @@ footer {
     font: 12px;
     width: 50px;
     background-color: #444;
-    font-weight: normal;
 }
 
 .home-button:hover {
@@ -239,6 +238,7 @@ footer {
 }
 
 .home-button:link {
+    font-weight: lighter;
     color: white;
 }
 
