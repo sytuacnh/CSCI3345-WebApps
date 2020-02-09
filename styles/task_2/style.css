@@ -8,6 +8,10 @@
     color: white;
 }
 
+.home-button:visited {
+    color: white;
+}
+
 #works-label:before {
     font-family: "FontAwesome", sans-serif;
     content: "\f085";
