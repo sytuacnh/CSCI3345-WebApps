@@ -1,0 +1,40 @@
+const teamNameCorrectionDict = {
+    "bro": "bkn",
+    "nor": "nop",
+    "okl": "okc",
+    "san": "sas",
+    "pho": "phx"
+};
+
+const teamNameDict = {
+    "atl": "atl atlanta hawks",
+    "bkn": "bkn brooklyn nets",
+    "bos": "bos boston celtics",
+    "cha": "cha charlotte hornets",
+    "chi": "chi chicago bulls",
+    "cle": "cle cleveland cavaliers",
+    "dal": "dal dallas mavericks",
+    "den": "den denver nuggets",
+    "det": "det detroit pistons",
+    "gsw": "gsw golden state warriors",
+    "hou": "hou houston rockets",
+    "ind": "ind indiana pacers",
+    "lac": "lac los angeles clippers",
+    "lal": "lal los angeles lakers",
+    "mem": "mem memphis grizzlies",
+    "mia": "mia miami heat",
+    "mil": "mil milwaukee bucks",
+    "min": "min minnesota timberwolves",
+    "nop": "nop new orleans pelicans",
+    "nyk": "nyk new york knicks",
+    "okc": "okc oklahoma city thunder",
+    "orl": "orl orlando magic",
+    "phi": "phi philadelphia 76ers",
+    "phx": "phx phoenix suns",
+    "por": "por portland trail blazers",
+    "sac": "sac sacramento kings",
+    "sas": "sas san antonio spurs",
+    "tor": "tor toronto raptors",
+    "uta": "uta utah jazz",
+    "was": "was washington wizards"
+};

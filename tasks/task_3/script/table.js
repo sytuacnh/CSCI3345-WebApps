@@ -17,9 +17,10 @@ const capitalizeName = (s) => {
 // change player name and team name format
 const parsePlayer = (player) => {
     const [last, first] = player[0].split(',');
-    const team = player[1];
+    const team = player[1].toLowerCase();
     player[0] = capitalizeName(first) + " " + capitalizeName(last);
-    player[1] = team.toUpperCase();
+    const teamAbb = !teamNameCorrectionDict.hasOwnProperty(team) ? team : teamNameCorrectionDict[team];
+    player[1] = teamAbb.toUpperCase();
     return player;
 };
 
@@ -185,9 +186,8 @@ const updateTableAfterSearch = (players, searchedValue) => {
     clearAllPlayers(tableBody);
     if (filterBy === "player")
         players = players.filter(player => player[0].toLowerCase().includes(searchedValue.toLowerCase()));
-    else if (filterBy === "team") {
-        console.log('by team!!!!!')
-    }
+    else if (filterBy === "team")
+        players = players.filter(player => teamNameDict[player[1].toLowerCase()].includes(searchedValue.toLowerCase()));
     fillTable(tableBody, players);
     prepareSort();
 };
@@ -204,7 +204,8 @@ const clearSearchBar = () => {
 
 const doSearch = () => {
     let searchBar = document.getElementById("search-bar");
-    updateTableAfterSearch(players, searchBar.value);
+    if (searchBar.value !== "")
+        updateTableAfterSearch(players, searchBar.value);
 };
 
 const clickSearchFilter = (value) => {
@@ -212,6 +213,6 @@ const clickSearchFilter = (value) => {
     if (value === "player")
         updateSearchBarPlaceholder(searchBar, "Player Name (ex: morant)");
     else if (value === "team")
-        updateSearchBarPlaceholder(searchBar, "Team Name (ex: spurs, san)");
+        updateSearchBarPlaceholder(searchBar, "Team Name (ex: spurs, sas, san, San Antonio)");
     filterBy = value;
 }
