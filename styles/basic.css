@@ -231,14 +231,17 @@ footer {
     font: 12px;
     width: 50px;
     background-color: #444;
+    font-weight: normal;
 }
 
 .home-button:hover {
     text-decoration: none;
 }
+
 .home-button:link {
-    font-weight: normal;
+    color: white;
 }
+
 .home-button:visited {
     color: white;
 }
