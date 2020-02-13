@@ -36,13 +36,13 @@ Array.prototype.forEach = function(callback) {
         if (this[i] !== null) callback.apply(this[i])
 }
 
-const requestAnimationFrame  = window.requestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.oRequestAnimationFrame ||
-        window.msRequestAnimationFrame || 
-        function(callback) {
-            window.setTimeout(callback, 1000 / 60);
-};
+const requestAnimationFrame = window.requestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function(callback) {
+        window.setTimeout(callback, 1000 / 60);
+    };
 
 const Meteor = function(x, r, c, dest) {
     this.dest = dest;
@@ -83,8 +83,20 @@ Meteor.prototype = {
     }
 }
 
-const animate = () => {
+const drawInstruction = () => {
+    ctx.font = "lighter 17px Verdana";
+    ctx.fillStyle = "#c5b59b";
+    ctx.textAlign = "center";
+    ctx.fillText("click();", canvas.width / 2, canvas.height / 2);
     ctx.save();
+}
+
+const animate = () => {
+    // setTimeout(function() {
+
+    // }, 500);
+    ctx.save();
+    drawInstruction();
     ctx.globalAlpha = 0.1;
     ctx.globalCompositeOperation = 'destination-out';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -100,7 +112,11 @@ const animate = () => {
     requestAnimationFrame(animate);
 };
 
-window.onload = () => animate();
+
+
+window.onload = () => {
+    animate();
+}
 
 window.addEventListener('mousedown',
     function(event) {
