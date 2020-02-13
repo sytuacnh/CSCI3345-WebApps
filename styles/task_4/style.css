@@ -1,0 +1,12 @@
+#mainCanvas {
+    background-image: url("../../static/sky_bg.jpg");
+    -webkit-background-image: url("../../static/sky_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
