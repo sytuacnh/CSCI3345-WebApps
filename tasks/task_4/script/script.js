@@ -8,7 +8,6 @@ const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) +
 let meters = [];
 const speed = 0.05;
 const r = 4;
-const init_x = getRandomDouble(canvas.width / 3, canvas.width * 2 / 3);
 const traceColor = "rgba(250,230,150,0.4)";
 let mouse = {
     x: undefined,
@@ -32,7 +31,7 @@ const colorsSize = Object.keys(colors).length;
 const getColor = () => colors[parseInt(getRandomInt(1, colorsSize))];
 
 Array.prototype.forEach = function(callback) {
-    for (var i = 0; i < this.length; i++)
+    for (let i = 0; i < this.length; i++)
         if (this[i] !== null) callback.apply(this[i])
 }
 
@@ -122,7 +121,7 @@ window.addEventListener('mousedown',
     function(event) {
         mouse.x = event.x;
         mouse.y = event.y;
-        var meteor = new Meteor(init_x, r, getColor(), { x: mouse.x, y: mouse.y });
+        let meteor = new Meteor(getRandomDouble(0, canvas.width), r, getColor(), { x: mouse.x, y: mouse.y });
         meters.push(meteor)
     }
 )
