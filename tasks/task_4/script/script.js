@@ -7,7 +7,7 @@ const getRandomDouble = (min, max) => Math.random() * (max - min) + min;
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 let meters = [];
 const speed = 0.05;
-const r = 7;
+const r = 4;
 const init_x = getRandomDouble(canvas.width / 3, canvas.width * 2 / 3);
 const traceColor = "rgba(250,230,150,0.4)";
 let mouse = {
