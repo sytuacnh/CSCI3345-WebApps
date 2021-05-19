@@ -1,3 +1,1 @@
-WebApps with Dr. Mark Lewis
-
-needs to fix permission problem
+# CSCI3345-S20 WebApps with Dr. Mark Lewis
