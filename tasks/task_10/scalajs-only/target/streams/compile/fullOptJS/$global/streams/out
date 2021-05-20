@@ -1,0 +1,22 @@
+[0m[[0m[0minfo[0m] [0m[0mFull optimizing /Users/sytu/Desktop/trinity_courses/web/tasks-webapps-s20-sytuacnh/scalajs-only/target/scala-2.12/scalajs-only-opt.js[0m
+[0m[[0m[0mdebug[0m] [0m[0mLinker: Compute reachability: 303143 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mLinker: Assemble LinkedClasses: 45855 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mLinker: Check IR: 188826 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mLinker: 628593 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mOptimizer: Batch mode: true[0m
+[0m[[0m[0mdebug[0m] [0m[0mOptimizer: Incremental part: 102417 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mOptimizer: Optimizing 1352 methods.[0m
+[0m[[0m[0mdebug[0m] [0m[0mOptimizer: Optimizer part: 535674 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mOptimizer: 644997 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mRefiner: Compute reachability: 57534 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mRefiner: Assemble LinkedClasses: 1791 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mRefiner: 80313 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mEmitter: Generate classes: 214351 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mEmitter: Write trees: 3990 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mEmitter: Class tree cache stats: reused: 166 -- invalidated: 212[0m
+[0m[[0m[0mdebug[0m] [0m[0mEmitter: Method tree cache stats: reused: 0 -- invalidated: 332[0m
+[0m[[0m[0mdebug[0m] [0m[0mEmitter: 227404 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mClosure: Create trees): 468235 us[0m
+[0m[[0m[0minfo[0m] [0m[0mClosure: 0 error(s), 0 warning(s)[0m
+[0m[[0m[0mdebug[0m] [0m[0mClosure: Compiler pass: 8157571 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mClosure: Write result: 65230 us[0m
