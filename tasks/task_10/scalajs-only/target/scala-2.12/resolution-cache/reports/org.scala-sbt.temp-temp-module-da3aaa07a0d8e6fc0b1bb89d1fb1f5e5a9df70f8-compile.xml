@@ -7,7 +7,7 @@
 		revision="1.0.1"
 		conf="compile"
 		confs="compile, runtime, test, provided, optional"
-		date="20210519233421"/>
+		date="20210520113056"/>
 	<dependencies>
 		<module organisation="org.scala-js" name="scalajs-linker_2.12">
 			<revision name="1.0.1" status="release" pubdate="20200306110727" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.scala-js.org/" extra-info.apiURL="http://www.scala-js.org/api/scalajs-linker/1.0.1/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="0">

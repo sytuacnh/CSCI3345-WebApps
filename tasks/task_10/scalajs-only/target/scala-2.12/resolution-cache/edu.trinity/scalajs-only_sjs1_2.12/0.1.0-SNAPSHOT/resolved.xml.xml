@@ -4,7 +4,7 @@
 		module="scalajs-only_sjs1_2.12"
 		revision="0.1.0-SNAPSHOT"
 		status="integration"
-		publication="20210519232915"
+		publication="20210519215812"
 	>
 		<description>
 		ScalaJS-only
@@ -37,6 +37,8 @@
 		<dependency org="org.scala-js" name="scalajs-test-bridge_2.12" rev="1.0.1" conf="test->default(compile)"/>
 		<dependency org="org.scalamacros" name="paradise_2.12.11" rev="2.1.1" conf="plugin->default(compile)"/>
 		<dependency org="org.scala-js" name="scalajs-dom_sjs1_2.12" rev="1.0.0" conf="compile->default(compile)"/>
+		<dependency org="me.shadaj" name="slinky-core_sjs1_2.12" rev="0.6.5" conf="compile->default(compile)"/>
+		<dependency org="me.shadaj" name="slinky-web_sjs1_2.12" rev="0.6.5" conf="compile->default(compile)"/>
 		<dependency org="org.scalatest" name="scalatest_2.12" rev="3.0.5" conf="test->default(compile)"/>
 	</dependencies>
 </ivy-module>

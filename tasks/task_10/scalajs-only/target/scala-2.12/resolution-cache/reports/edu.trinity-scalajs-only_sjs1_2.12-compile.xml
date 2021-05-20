@@ -7,17 +7,100 @@
 		revision="0.1.0-SNAPSHOT"
 		conf="compile"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20210519232915"/>
+		date="20210519215812"/>
 	<dependencies>
+		<module organisation="me.shadaj" name="slinky-web_sjs1_2.12">
+			<revision name="0.6.5" status="release" pubdate="20200410155856" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/shadaj/slinky" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="8">
+				<license name="MIT" url="https://opensource.org/licenses/MIT"/>
+				<metadata-artifact status="no" details="" size="3228" time="0" location="/Users/sytu/.ivy2/cache/me.shadaj/slinky-web_sjs1_2.12/ivy-0.6.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/me/shadaj/slinky-web_sjs1_2.12/0.6.5/slinky-web_sjs1_2.12-0.6.5.pom"/>
+				<caller organisation="edu.trinity" name="scalajs-only_sjs1_2.12" conf="compile" rev="0.6.5" rev-constraint-default="0.6.5" rev-constraint-dynamic="0.6.5" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="slinky-web_sjs1_2.12" type="jar" ext="jar" status="no" details="" size="31898187" time="0" location="/Users/sytu/.ivy2/cache/me.shadaj/slinky-web_sjs1_2.12/jars/slinky-web_sjs1_2.12-0.6.5.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/me/shadaj/slinky-web_sjs1_2.12/0.6.5/slinky-web_sjs1_2.12-0.6.5.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-compiler">
+			<revision name="2.12.11" status="release" pubdate="20200316043731" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="5">
+				<license name="Apache-2.0" url="https://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="3331" time="0" location="/Users/sytu/.ivy2/cache/org.scala-lang/scala-compiler/ivy-2.12.11.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.12.11/scala-compiler-2.12.11.pom"/>
+				<caller organisation="me.shadaj" name="slinky-readwrite_sjs1_2.12" conf="compile, runtime" rev="2.12.11" rev-constraint-default="2.12.11" rev-constraint-dynamic="2.12.11" callerrev="0.6.5"/>
+				<artifacts>
+					<artifact name="scala-compiler" type="jar" ext="jar" status="no" details="" size="10718428" time="0" location="/Users/sytu/.ivy2/cache/org.scala-lang/scala-compiler/jars/scala-compiler-2.12.11.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.12.11/scala-compiler-2.12.11.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang.modules" name="scala-xml_2.12">
+			<revision name="1.0.6" status="release" pubdate="20161101092105" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="7">
+				<license name="BSD 3-clause" url="http://opensource.org/licenses/BSD-3-Clause"/>
+				<metadata-artifact status="no" details="" size="3137" time="0" location="/Users/sytu/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/ivy-1.0.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.12/1.0.6/scala-xml_2.12-1.0.6.pom"/>
+				<caller organisation="org.scala-lang" name="scala-compiler" conf="compile, runtime" rev="1.0.6" rev-constraint-default="1.0.6" rev-constraint-dynamic="1.0.6" callerrev="2.12.11"/>
+				<artifacts>
+					<artifact name="scala-xml_2.12" type="bundle" ext="jar" status="no" details="" size="547860" time="0" location="/Users/sytu/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/bundles/scala-xml_2.12-1.0.6.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.12/1.0.6/scala-xml_2.12-1.0.6.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-reflect">
+			<revision name="2.12.11" status="release" pubdate="20200316043203" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.scala-lang.org/" extra-info.apiURL="https://www.scala-lang.org/api/2.12.11/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="6">
+				<license name="Apache-2.0" url="https://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="2835" time="0" location="/Users/sytu/.ivy2/cache/org.scala-lang/scala-reflect/ivy-2.12.11.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.12.11/scala-reflect-2.12.11.pom"/>
+				<caller organisation="org.scala-lang" name="scala-compiler" conf="compile, runtime" rev="2.12.11" rev-constraint-default="2.12.11" rev-constraint-dynamic="2.12.11" callerrev="2.12.11"/>
+				<caller organisation="me.shadaj" name="slinky-core_sjs1_2.12" conf="default, compile, runtime, master" rev="2.12.11" rev-constraint-default="2.12.11" rev-constraint-dynamic="2.12.11" callerrev="0.6.5"/>
+				<caller organisation="me.shadaj" name="slinky-readwrite_sjs1_2.12" conf="compile, runtime" rev="2.12.11" rev-constraint-default="2.12.11" rev-constraint-dynamic="2.12.11" callerrev="0.6.5"/>
+				<artifacts>
+					<artifact name="scala-reflect" type="jar" ext="jar" status="no" details="" size="3681570" time="0" location="/Users/sytu/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.12.11.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.12.11/scala-reflect-2.12.11.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="me.shadaj" name="slinky-core_sjs1_2.12">
+			<revision name="0.6.5" status="release" pubdate="20200410155858" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/shadaj/slinky" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="3">
+				<license name="MIT" url="https://opensource.org/licenses/MIT"/>
+				<metadata-artifact status="no" details="" size="3232" time="0" location="/Users/sytu/.ivy2/cache/me.shadaj/slinky-core_sjs1_2.12/ivy-0.6.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/me/shadaj/slinky-core_sjs1_2.12/0.6.5/slinky-core_sjs1_2.12-0.6.5.pom"/>
+				<caller organisation="me.shadaj" name="slinky-web_sjs1_2.12" conf="default, compile, runtime, master" rev="0.6.5" rev-constraint-default="0.6.5" rev-constraint-dynamic="0.6.5" callerrev="0.6.5"/>
+				<caller organisation="edu.trinity" name="scalajs-only_sjs1_2.12" conf="compile" rev="0.6.5" rev-constraint-default="0.6.5" rev-constraint-dynamic="0.6.5" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="slinky-core_sjs1_2.12" type="jar" ext="jar" status="no" details="" size="590280" time="0" location="/Users/sytu/.ivy2/cache/me.shadaj/slinky-core_sjs1_2.12/jars/slinky-core_sjs1_2.12-0.6.5.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/me/shadaj/slinky-core_sjs1_2.12/0.6.5/slinky-core_sjs1_2.12-0.6.5.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="me.shadaj" name="slinky-readwrite_sjs1_2.12">
+			<revision name="0.6.5" status="release" pubdate="20200410155857" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/shadaj/slinky" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="4">
+				<license name="MIT" url="https://opensource.org/licenses/MIT"/>
+				<metadata-artifact status="no" details="" size="3242" time="0" location="/Users/sytu/.ivy2/cache/me.shadaj/slinky-readwrite_sjs1_2.12/ivy-0.6.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/me/shadaj/slinky-readwrite_sjs1_2.12/0.6.5/slinky-readwrite_sjs1_2.12-0.6.5.pom"/>
+				<caller organisation="me.shadaj" name="slinky-core_sjs1_2.12" conf="default, compile, runtime, master" rev="0.6.5" rev-constraint-default="0.6.5" rev-constraint-dynamic="0.6.5" callerrev="0.6.5"/>
+				<artifacts>
+					<artifact name="slinky-readwrite_sjs1_2.12" type="jar" ext="jar" status="no" details="" size="531803" time="0" location="/Users/sytu/.ivy2/cache/me.shadaj/slinky-readwrite_sjs1_2.12/jars/slinky-readwrite_sjs1_2.12-0.6.5.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/me/shadaj/slinky-readwrite_sjs1_2.12/0.6.5/slinky-readwrite_sjs1_2.12-0.6.5.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
 		<module organisation="org.scala-js" name="scalajs-dom_sjs1_2.12">
-			<revision name="1.0.0" status="release" pubdate="20200212032729" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scala-js.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="2">
+			<revision name="1.0.0" status="release" pubdate="20200212032729" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scala-js.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master, runtime(*), master(compile), compile(*)" position="2">
 				<license name="MIT" url="http://opensource.org/licenses/mit-license.php"/>
 				<metadata-artifact status="no" details="" size="2933" time="0" location="/Users/sytu/.ivy2/cache/org.scala-js/scalajs-dom_sjs1_2.12/ivy-1.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-js/scalajs-dom_sjs1_2.12/1.0.0/scalajs-dom_sjs1_2.12-1.0.0.pom"/>
+				<caller organisation="me.shadaj" name="slinky-web_sjs1_2.12" conf="default, compile, runtime, master" rev="0.9.8" rev-constraint-default="0.9.8" rev-constraint-dynamic="0.9.8" callerrev="0.6.5"/>
 				<caller organisation="edu.trinity" name="scalajs-only_sjs1_2.12" conf="compile" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="0.1.0-SNAPSHOT"/>
 				<artifacts>
 					<artifact name="scalajs-dom_sjs1_2.12" type="jar" ext="jar" status="no" details="" size="1887469" time="0" location="/Users/sytu/.ivy2/cache/org.scala-js/scalajs-dom_sjs1_2.12/jars/scalajs-dom_sjs1_2.12-1.0.0.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-js/scalajs-dom_sjs1_2.12/1.0.0/scalajs-dom_sjs1_2.12-1.0.0.jar"/>
 					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="0.9.8" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master, default, default(compile)" position="-1">
+				<evicted-by rev="1.0.0"/>
+				<caller organisation="me.shadaj" name="slinky-web_sjs1_2.12" conf="default, compile, runtime, master" rev="0.9.8" rev-constraint-default="0.9.8" rev-constraint-dynamic="0.9.8" callerrev="0.6.5"/>
+				<caller organisation="edu.trinity" name="scalajs-only_sjs1_2.12" conf="compile" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="0.1.0-SNAPSHOT"/>
+				<artifacts>
 				</artifacts>
 			</revision>
 		</module>
@@ -26,7 +109,10 @@
 				<license name="Apache-2.0" url="https://www.apache.org/licenses/LICENSE-2.0"/>
 				<metadata-artifact status="no" details="" size="2838" time="0" location="/Users/sytu/.ivy2/cache/org.scala-js/scalajs-library_2.12/ivy-1.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-js/scalajs-library_2.12/1.0.1/scalajs-library_2.12-1.0.1.pom"/>
 				<caller organisation="org.scala-js" name="scalajs-dom_sjs1_2.12" conf="default, compile, runtime, master" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="1.0.0"/>
+				<caller organisation="me.shadaj" name="slinky-web_sjs1_2.12" conf="default, compile, runtime, master" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="0.6.5"/>
 				<caller organisation="edu.trinity" name="scalajs-only_sjs1_2.12" conf="compile" rev="1.0.1" rev-constraint-default="1.0.1" rev-constraint-dynamic="1.0.1" callerrev="0.1.0-SNAPSHOT"/>
+				<caller organisation="me.shadaj" name="slinky-core_sjs1_2.12" conf="default, compile, runtime, master" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="0.6.5"/>
+				<caller organisation="me.shadaj" name="slinky-readwrite_sjs1_2.12" conf="compile, runtime" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="0.6.5"/>
 				<artifacts>
 					<artifact name="scalajs-library_2.12" type="jar" ext="jar" status="no" details="" size="5444898" time="0" location="/Users/sytu/.ivy2/cache/org.scala-js/scalajs-library_2.12/jars/scalajs-library_2.12-1.0.1.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-js/scalajs-library_2.12/1.0.1/scalajs-library_2.12-1.0.1.jar"/>
@@ -36,7 +122,10 @@
 			<revision name="1.0.0" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master, default, default(compile)" position="-1">
 				<evicted-by rev="1.0.1"/>
 				<caller organisation="org.scala-js" name="scalajs-dom_sjs1_2.12" conf="default, compile, runtime, master" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="1.0.0"/>
+				<caller organisation="me.shadaj" name="slinky-web_sjs1_2.12" conf="default, compile, runtime, master" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="0.6.5"/>
 				<caller organisation="edu.trinity" name="scalajs-only_sjs1_2.12" conf="compile" rev="1.0.1" rev-constraint-default="1.0.1" rev-constraint-dynamic="1.0.1" callerrev="0.1.0-SNAPSHOT"/>
+				<caller organisation="me.shadaj" name="slinky-core_sjs1_2.12" conf="default, compile, runtime, master" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="0.6.5"/>
+				<caller organisation="me.shadaj" name="slinky-readwrite_sjs1_2.12" conf="compile, runtime" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="0.6.5"/>
 				<artifacts>
 				</artifacts>
 			</revision>
@@ -47,7 +136,12 @@
 				<metadata-artifact status="no" details="" size="2662" time="0" location="/Users/sytu/.ivy2/cache/org.scala-lang/scala-library/ivy-2.12.11.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.11/scala-library-2.12.11.pom"/>
 				<caller organisation="org.scala-js" name="scalajs-library_2.12" conf="default, compile, runtime, master" rev="2.12.11" rev-constraint-default="2.12.11" rev-constraint-dynamic="2.12.11" callerrev="1.0.1"/>
 				<caller organisation="org.scala-js" name="scalajs-dom_sjs1_2.12" conf="default, compile, runtime, master" rev="2.12.11" rev-constraint-default="2.12.11" rev-constraint-dynamic="2.12.11" callerrev="1.0.0"/>
+				<caller organisation="org.scala-lang" name="scala-reflect" conf="compile, runtime" rev="2.12.11" rev-constraint-default="2.12.11" rev-constraint-dynamic="2.12.11" callerrev="2.12.11"/>
+				<caller organisation="me.shadaj" name="slinky-web_sjs1_2.12" conf="default, compile, runtime, master" rev="2.12.11" rev-constraint-default="2.12.11" rev-constraint-dynamic="2.12.11" callerrev="0.6.5"/>
 				<caller organisation="edu.trinity" name="scalajs-only_sjs1_2.12" conf="compile" rev="2.12.11" rev-constraint-default="2.12.11" rev-constraint-dynamic="2.12.11" callerrev="0.1.0-SNAPSHOT"/>
+				<caller organisation="org.scala-lang" name="scala-compiler" conf="compile, runtime" rev="2.12.11" rev-constraint-default="2.12.11" rev-constraint-dynamic="2.12.11" callerrev="2.12.11"/>
+				<caller organisation="me.shadaj" name="slinky-core_sjs1_2.12" conf="default, compile, runtime, master" rev="2.12.11" rev-constraint-default="2.12.11" rev-constraint-dynamic="2.12.11" callerrev="0.6.5"/>
+				<caller organisation="me.shadaj" name="slinky-readwrite_sjs1_2.12" conf="compile, runtime" rev="2.12.11" rev-constraint-default="2.12.11" rev-constraint-dynamic="2.12.11" callerrev="0.6.5"/>
 				<artifacts>
 					<artifact name="scala-library" type="jar" ext="jar" status="no" details="" size="5369543" time="0" location="/Users/sytu/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.11.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.11/scala-library-2.12.11.jar"/>
