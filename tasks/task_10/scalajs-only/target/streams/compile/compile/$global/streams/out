@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/Users/sytu/Desktop/trinity_courses/web/CSCI3345-WebApps/tasks/task_10/scalajs-only/src/main/scala/example/Hello.scala:25:15: not found: value Mouse[0m
+[0m[[0m[31merror[0m] [0m[0m  val mouse = Mouse(0, 0)[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
